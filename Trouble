@@ -1,0 +1,25 @@
+using System;
+
+namespace Trane
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double a = 1.05;
+            double b = 1.07;
+            double c = 1.1;
+            Console.Write("Enter a number: ");
+            double sum = Convert.ToDouble(Console.Read());
+
+            if (sum < 100)
+                sum += sum * a;
+            else if (sum <= 200)
+                sum += sum * b;
+            else
+                sum += sum * c;
+            Console.WriteLine($"Deposit amount:  {sum}");
+        }
+    }
+
+}
