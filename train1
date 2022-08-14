@@ -16,17 +16,17 @@ namespace Train
             switch (operationNum)
             {
                 case 1:
-                    Console.WriteLine("This is addition operation.");
+                    Console.Write("This is addition operation.");
                     des = num1 + num2;
                     Console.WriteLine($"The result of operation is: {des}");
                     break;
                 case 2:
-                    Console.WriteLine("This is subtraction operation");
+                    Console.Write("This is subtraction operation");
                     des = num1 - num2;
                     Console.WriteLine($"The result of operation is: {des}");
                     break;
                 case 3:
-                    Console.WriteLine("This is multiplication operation");
+                    Console.Write("This is multiplication operation");
                     des = num1 * num2;
                     Console.WriteLine($"The result of operation is: {des}");
                     break;
