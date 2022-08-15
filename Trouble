@@ -10,14 +10,14 @@ namespace Trane
             double b = 1.07;
             double c = 1.1;
             Console.Write("Enter a number: ");
-            double sum = Convert.ToDouble(Console.Read());
+            double sum = Convert.ToDouble(Console.ReadLine());
 
             if (sum < 100)
-                sum += sum * a;
+                sum = sum * a;
             else if (sum <= 200)
-                sum += sum * b;
+                sum = sum * b;
             else
-                sum += sum * c;
+                sum = sum * c;
             Console.WriteLine($"Deposit amount:  {sum}");
         }
     }
