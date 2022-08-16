@@ -1,0 +1,52 @@
+// [InlineData]
+using Xunit;
+
+namespace Example.xUnit
+{
+    private static int Add (int a, int b)  // Объявление метода Add, возвращающего сумму a и b
+    {
+        return a + b;
+    }
+    
+    [Theory]                // Атрибут, указывающий, что тест может использовать данные, переданные через параметры метода (Аdd)
+    [InlineData(2 ,2 ,4)]   // для простых типов данных (a ,b, expSum)
+    [InlineData(3 ,4 ,7)]
+    public void Add_TwoIntegerParams_returnSum_v1(int a, int b, int expSum)  
+    { // Объявление метода Add_Two... принимающего параметры из [InlineData] для использования первых двух в методе Add и сравнения с 3-м 
+        var actSum = Add(a, b);
+        Assert.Equal(expSum, actSum); // сравнение 
+    }
+}
+
+// [MemberData]
+using Xunit;
+
+namespace Example.xUnit
+{
+    public class TestCaseItem // инициализация объекта с именованным типом TestCaseItem и вызов конструктора
+    {
+        public string TestId { get; set; }  // Идентификатор тест-кейса
+        public int First { get; set; } // Первый параметр
+        public int Second { get; set; } // Второй параметр
+        public int ExpectedSum { get; set; } // Ожидаемый результат выполнрения тестируемого метода
+        
+        public override string ToString()// Переопределяем логику метода ToString() для более удобного отображения названий тест-кейсов в обозревателе тестов
+        {    
+            return $@"{TestId ??= "TestId не определён"}"; //
+        }
+    }
+    public class TestCases : TheoryData<TestCaseItem>
+    {
+        public TestCases()
+        {
+            Add(new TestCaseItem {TestId = "TC01", First = 2, Second = 2, ExpectedSum = 4});
+            Add(new TestCaseItem {TestId = "TC02", First = 3, Second = 3, ExpectedSum = 6});
+        }
+    }
+    [Theory]
+    [ClassData(typeof(TestCases))]
+    public void Add_TwoIntegerParams_ReturnsSum_v2(TestCaseItem testCase)
+    {
+        Assert.Equal(testCase.ExpectedSum, Add(testCase.First, testCase.Second));
+    }
+}
