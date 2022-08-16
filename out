@@ -1,0 +1,23 @@
+using System;
+
+namespace Trane
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            void GetRectangle(int width, int height, out int rArea, out int rPer )
+            {
+                rArea = width * height;
+                rPer = (width + height) * 2;
+            }
+            int area;
+            int per;
+            GetRectangle(10, 20, out area, out per);
+
+            Console.WriteLine($"Rectangle area = {area}");
+            Console.WriteLine($"Rectangle perimetr = {per}");
+        }
+    }
+
+}
