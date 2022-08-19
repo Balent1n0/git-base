@@ -4,13 +4,13 @@ namespace Trane
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            double a = 1.05;
-            double b = 1.07;
-            double c = 1.1;
+            Decimal a = 1.05m;
+            Decimal b = 1.07m;
+            Decimal c = 1.1m;
             Console.Write("Enter a number: ");
-            double sum = Convert.ToDouble(Console.ReadLine());
+            Decimal sum = Convert.ToDecimal(Console.ReadLine());
 
             if (sum < 100)
                 sum = sum * a;
@@ -18,7 +18,7 @@ namespace Trane
                 sum = sum * b;
             else
                 sum = sum * c;
-            Console.WriteLine($"Deposit amount:  {sum}");
+            Console.WriteLine($"Deposit amount:  {sum:#.##}");
         }
     }
 
