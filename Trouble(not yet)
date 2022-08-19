@@ -18,7 +18,7 @@ namespace Trane
                 sum = sum * b;
             else
                 sum = sum * c;
-            Console.WriteLine($"Deposit amount:  {sum:#.##}");
+            Console.WriteLine($"Deposit amount: {sum:C}"); //для не денежного формата {sum:#.##}
         }
     }
 
