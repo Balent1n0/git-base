@@ -1,0 +1,33 @@
+using System;
+class Building
+{
+    public int floors;
+    public int area;
+    public int occupants;
+    public Building (int f, int a, int o) // параметризированный КОНСТРУКТОР для КЛАССА Building (ДОЛЖЕН НАЗЫВАТЬСЯ КАК КЛАСС)
+    {
+        floors = f;
+        area = a; 
+        occupants = o;
+    }
+    public double AreaPP()  //  площадь на одного человека
+    {
+        return (double)area / (double)occupants;
+    }
+    public int MaxOccpnt(int minAreaPP) // максимальное количество человек на объект Building
+    {
+        return area / minAreaPP;
+    }
+}
+class BuildingDemo
+{
+    static void Main()
+    {
+        Building house = new (2, 250, 4); // упрощенная запись Building house = new Building(2, 250, 4)
+        Building office = new (1, 420, 25); // упрощенная запись Building office = new Building(1, 420, 25)
+
+        Console.WriteLine($"House has: \n - {house.floors} floors.\n - {house.occupants} occupants.\n - {house.area} m. area\n - {house.AreaPP()} m. per person\n - {house.MaxOccpnt(30)} max. quantity of person");
+        
+        Console.WriteLine($"Office has: \n - {office.floors} floors.\n - {office.occupants} occupants.\n - {office.area} m. area\n - {office.AreaPP()} m. per person\n - {office.MaxOccpnt(30)} max. quantity of person");
+    }
+}
