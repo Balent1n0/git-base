@@ -4,9 +4,13 @@ class Building
     public int floors;
     public int area;
     public int occupants;
-    public int AreaPP()
+    public double AreaPP()
     {
-        return area / occupants;
+        return (double)area / (double)occupants;
+    }
+    public int MaxOccpnt(int minArea)
+    {
+        return area / minArea;
     }
 }
 class BuildingDemo
@@ -21,18 +25,13 @@ class BuildingDemo
         house.area = 250;
         house.floors = 2;
 
-        Console.WriteLine($"House has: \n - {house.floors} floors.\n - {house.occupants} occupants.\n - {house.area} m. area\n {house.AreaPP()} m. per person");
+        Console.WriteLine($"House has: \n - {house.floors} floors.\n - {house.occupants} occupants.\n - {house.area} m. area\n - {house.AreaPP()} m. per person\n - {house.MaxOccpnt(30)} max. quantity of person");
         
-
 
         office.occupants = 25;
         office.area = 300;
         office.floors = 1;
 
-        Console.WriteLine($"Office has: \n - {office.floors} floors.\n - {office.occupants} occupants.\n - {office.area} m. area\n - {office.AreaPP()} m. per person");
-        
-
-
-
+        Console.WriteLine($"Office has: \n - {office.floors} floors.\n - {office.occupants} occupants.\n - {office.area} m. area\n - {office.AreaPP()} m. per person\n - {office.MaxOccpnt(30)} max. quantity of person");
     }
 }
