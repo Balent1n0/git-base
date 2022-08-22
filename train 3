@@ -1,0 +1,23 @@
+using System;
+class Building
+{
+    public int floors;
+    public int area;
+    public int occupants;
+}
+class BuildingDemo
+{
+    static void Main()
+    {
+        Building house = new Building();
+        int areaPP;
+
+        house.occupants = 4;
+        house.area = 2500;
+        house.floors = 2;
+
+        areaPP = house.area / house.occupants;
+        Console.WriteLine($"House has: {house.floors} floors. \n           {house.occupants} occupants. \n           {areaPP} m. on person ");
+
+    }
+}
