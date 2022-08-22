@@ -10,14 +10,24 @@ class BuildingDemo
     static void Main()
     {
         Building house = new Building();
+        Building office = new Building();
         int areaPP;
 
         house.occupants = 4;
-        house.area = 2500;
+        house.area = 250;
         house.floors = 2;
 
         areaPP = house.area / house.occupants;
-        Console.WriteLine($"House has: {house.floors} floors. \n           {house.occupants} occupants. \n           {areaPP} m. on person ");
+        Console.WriteLine($"House has: {house.floors} floors.\n           {house.occupants} occupants.\n           {areaPP} m. on person ");
+
+        office.occupants = 25;
+        office.area = 300;
+        office.floors = 1;
+
+        areaPP = office.area / office.occupants;
+        Console.WriteLine($"Office has: {office.floors} floors.\n           {office.occupants} occupants.\n           {areaPP} m. on person ");
+
+
 
     }
 }
