@@ -1,4 +1,25 @@
+/*
+using System;
+class MyClass
+{
+    public void ShowArgs(string msg, params int[] nums)
+    {
+        Console.Write(msg + ": ");
 
+        foreach (int i in nums) Console.Write(i + " ");
+        Console.WriteLine();
+    }
+}
+class ParamsDemo2
+{
+    static void Main()
+    {
+        MyClass ob = new();
+        ob.ShowArgs("Some string of numbers", 1, 2, 3, 4, 5);
+        ob.ShowArgs("More string of numbers", 6, 7, 8);
+    }
+}
+-----------------------------------------------------------------------------------------------------------------
 using System;
 class Min
 {
@@ -39,3 +60,4 @@ class ParamsDemo
         Console.WriteLine($"Lesser parametr in ARGS array = {min}");
     }
 }
+*/
