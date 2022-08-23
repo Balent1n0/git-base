@@ -1,0 +1,99 @@
+using System;
+
+class Stack
+{
+    char [] stck;
+    int tos;
+    public Stack(int size) // пустой класс для реализации стека заданного размера
+    {
+        stck = new char[size]; // распределить память для стека
+        tos = 0;
+    }
+    public void Push(char ch) // поместить символы в стек
+    {
+        if(tos == stck.Length)
+        {
+            Console.WriteLine("Stack is fullfill.");
+            return;
+        }
+        stck[tos] = ch;
+        tos++;
+    }
+    public char Pop() //извлечь символ из стека
+    {
+        if (tos == 0)
+        {
+            Console.WriteLine(" - Stack is empty.");
+            return (char)0;
+        }
+        tos--;
+        return stck[tos];
+    }
+    public bool IsFull() //возвратить true, если стек заполнен
+    {
+        return tos == stck.Length;
+    }
+    public bool IsEmpty() //возвратить true, если стек пуст
+    {
+        return tos == 0;
+    }
+    public int Capacity() //возвратить общую емкость стека
+    {
+        return stck.Length;
+    }
+    public int GetNum() // возвратить количество объектов, находящихся в данный момент в стеке
+    {
+        return tos;
+    }
+}
+class StackDemo
+{
+    static void Main()
+    {
+        Stack stk1 = new(10);
+        Stack stk2 = new(20);
+        Stack stk3 = new(30);
+        char ch;
+        int i;
+        Console.WriteLine("Add symbols to stack stk1");
+        for (i = 0; !stk1.IsFull(); i++)
+            stk1.Push((char)('A' + i));
+        if (stk1.IsFull()) Console.WriteLine("Stack is fullfill.");
+
+        Console.Write("stk1 = ");
+        while(!stk1.IsEmpty()){
+            ch = stk1.Pop();
+            Console.Write(ch);
+        }
+
+        Console.WriteLine();
+
+        if (stk1.IsEmpty()) Console.WriteLine("stk1 is empty");
+
+        Console.WriteLine("Add new cymbols to stk1");
+        for (i = 0; !stk1.IsFull(); i++)
+            stk1.Push((char)('A' + 1));
+
+        Console.WriteLine("Eject cymbols from stk1 and relocate to stk2");
+        while (!stk1.IsEmpty())
+        {
+            ch = stk1.Pop();
+            stk2.Push(ch);
+        }
+        Console.Write("stk2 = ");
+        while (!stk2.IsEmpty())
+        {
+            ch = stk2.Pop();
+            Console.Write(ch);
+        }
+
+        Console.WriteLine();
+
+        Console.WriteLine("Add 5 cymbols to stk3");
+        for (i = 0; i < 5; i++)
+            stk3.Push((char)('A' + i));
+
+        Console.WriteLine($"Stk3 may contain {stk3.Capacity()} cymbols");
+        Console.WriteLine($"Stk3 have {stk3.GetNum()} cimbals");
+    }
+}
