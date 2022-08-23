@@ -1,0 +1,176 @@
+/*
+-----------------------------------------------------------------------------------------------------
+// ссылочные параметры REF служат для смены объектов, на которые указывают ссылки
+using System;
+class RefSwap
+{
+    int a, b;
+    public RefSwap(int i, int j)
+    {
+        a = i;
+        b = j;
+    }
+    public void Show()
+    {
+        Console.WriteLine($"First number = {a}, second number = {b}");
+    }
+    //Метод, изменяющий аргументы
+    public void Swap(ref RefSwap ob1, ref RefSwap ob2)
+    {
+        RefSwap t;
+        t = ob1;
+        ob1 = ob2;
+        ob2 = t;
+    }
+}
+class RefSwapDemo
+{
+    static void Main()
+    {
+        RefSwap x = new(1, 2);
+        RefSwap y = new(3, 4);
+
+        Console.Write("X before calling = ");
+        x.Show();
+        Console.Write("Y before calling = ");
+        y.Show();
+
+        Console.WriteLine("SWAPPPP!!..");
+        // смена объектов методом Swap
+        x.Swap(ref x, ref y);
+
+        Console.Write("X after calling = ");
+        x.Show();
+        Console.Write("Y after calling = ");
+        y.Show();
+    }
+}
+-----------------------------------------------------------------------------------------------------
+using System;
+class Num
+{
+    public bool HasComFactor(int x, int y, out int least, out int greatest)
+    {
+        int i;
+        int max = x < y ? x : y;
+        bool first = true;
+        least = 1;
+        greatest = 1;
+        //find least and greatest common multiplier
+        for (i = 2; i <= max / 2 + 1; i++)
+        {
+            if (((y % i) == 0) && (x % i) == 0)
+            {
+                if (first)
+                {
+                    least = i;
+                    first = false;
+                }
+                greatest = i;
+            }   
+        }
+        if (least != 1) return true;
+        else return false;
+    }
+}
+class DemoOut
+{
+    static void Main()
+    {
+        Num ob = new();
+
+        int lcf, gcf;
+        Console.Write("Enter first number: ");
+        int a = Convert.ToInt32(Console.ReadLine());
+        
+        Console.Write("Enter second number: ");
+        int b = Convert.ToInt32(Console.ReadLine());
+
+        if (ob.HasComFactor(a, b, out lcf, out gcf))
+        {
+            Console.WriteLine($"Least common multiplier of numbers {a} and {b} = {lcf}");
+            Console.WriteLine($"Greatest common multiplier of numbers {a} and {b} = {gcf}");
+        }
+        else
+            Console.WriteLine("Common multiplier is undefind");
+        
+    }
+}
+-----------------------------------------------------------------------------------------------------
+using System;
+class Decompose
+{
+    public int GetParts(double n, out double frac)
+    {
+        int whole;
+        whole = (int)n;
+        frac = n - whole; // передать дробную часть числа через параметр frac
+        return whole;     // вернуть челую часть числа
+    }
+}
+class DecomposeDemo
+{
+    static void Main()
+    {
+        Decompose ob = new();
+        int i;
+        double f;
+
+        i = ob.GetParts(10.125, out f);
+
+        Console.WriteLine($"full number = {i}");
+        Console.WriteLine($"decomposed number = {f}");
+    }
+}
+-----------------------------------------------------------------------------------------------------
+using System;// Using REF-method to reset values of numbers
+class ValueSwap
+{
+    public void Swap(ref int a, ref int b)
+    {
+        int t;
+        t = b;
+        b = a;
+        a = t;
+    }
+}
+class ValueSwapDemo
+{
+    static void Main()
+    {
+        ValueSwap ob = new();
+        int x = 10; 
+        int y = 20;
+
+        Console.WriteLine($"Integer X = {x} & Y = {y} before REF-METHOD calling");
+
+        ob.Swap(ref x, ref y);
+
+        Console.WriteLine($"Integer X = {x} & Y = {y} after REF-METHOD calling");
+    }
+}
+-----------------------------------------------------------------------------------------------------
+using System; // Using REF-method to change simple type value on linc
+class RefTest
+{
+    public void Sqr(ref int i)
+    {
+        i *= i;
+    }
+}
+class RefDemo
+{
+    static void Main()
+    {
+        RefTest ob = new();
+        int a = 10;
+
+        Console.WriteLine($"Int-A before calling REF's method = {a}");
+
+        ob.Sqr(ref a);
+
+        Console.WriteLine($"Int-A after callin REF's method = {a}");
+    }
+}
+-----------------------------------------------------------------------------------------------------
+ */
