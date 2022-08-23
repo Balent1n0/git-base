@@ -1,4 +1,3 @@
-using System;
 class Building
 {
     public int floors;
@@ -19,14 +18,14 @@ class BuildingDemo
     {
         Building house = new Building();
         Building office = house;
-        
+
 
         house.occupants = 4;
         house.area = 250;
         house.floors = 2;
 
         Console.WriteLine($"House has: \n - {house.floors} floors.\n - {house.occupants} occupants.\n - {house.area} m. area\n - {house.AreaPP()} m. per person\n - {house.MaxOccpnt(30)} max. quantity of person");
-        
+
 
         office.occupants = 25;
         office.area = 300;
