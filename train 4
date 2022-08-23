@@ -1,0 +1,41 @@
+using System;
+
+class MyClass
+{
+    private int alfa; // явно закрытый доступ
+    int beta; // неявно закрытый доступ
+    public int gamma; // открытый доступ
+
+    public void SetAlfa(int a) // доступ к закрытым переменным осуществляется через открытые методы одного класса
+    {
+        alfa = a;
+    }
+    public int GetAlfa() // доступ к закрытым переменным осуществляется через открытые методы одного класса
+    {
+        return alfa;
+    }
+    public void SetBeta(int a) // доступ к закрытым переменным осуществляется через открытые методы одного класса
+    {
+        beta = a;
+    }
+    public int GetBeta() // доступ к закрытым переменным осуществляется через открытые методы одного класса
+    {
+        return beta;
+    }
+}
+class AccessDemo
+{
+    static void Main()
+    {
+        MyClass ob = new();
+
+        ob.SetAlfa(-99);
+        ob.SetBeta(19);
+        Console.WriteLine($"ob.alfa = {ob.GetAlfa()}");
+        Console.WriteLine($"ob.beta = {ob.GetBeta()}");
+
+        // ob.alfa = 10; - ошибка доступа (закрытый член)
+        // ob.beta = 10; - ошибка доступа (закрытый член)
+         ob.gamma = 99;  // нет ошибки открытый (public) член
+    }
+}
