@@ -1,0 +1,41 @@
+
+using System;
+class Min
+{
+    public int MinVal(params int [] nums)
+    {
+        int m;
+        if(nums.Length == 0)
+        {
+            Console.WriteLine("Error: arguments undefind");
+            return 0;
+        }
+        m = nums[0];
+        for(int i = 1; i < nums.Length; i++)
+            if (nums[i] < m) m = nums[i];
+        return m;
+    }
+}
+class ParamsDemo
+{
+    static void Main()
+    {
+        Min ob = new();
+        int min;
+        int a = 10;
+        int b = 20;
+        
+        //call method with two parameters
+        min = ob.MinVal(a, b);
+        Console.WriteLine($"Lesser parametr = {min}");
+
+        //call method with three parameters
+        min = ob.MinVal(a, b, a*(-b));
+        Console.WriteLine($"Lesser parametr = {min}");
+
+        //call method with array of parameters
+        int[] args = { 23, 32, 23, 435, 657, 3, 56, 76, -3, 23, -657, 8, 43, -34, 6, 7, 56, 34, 45, 65, 34 };
+        min = ob.MinVal(args);
+        Console.WriteLine($"Lesser parametr in ARGS array = {min}");
+    }
+}
